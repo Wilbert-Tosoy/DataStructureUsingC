@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void PrintAndCount(int maximum) {
+    int start = 0;
+    int sum = 0;
+
+    for (start; start <= maximum; start++) {
+        if (start % 2 == 0) {
+            printf("%d ", start);
+            sum = sum + start;
+        }
+    }
+    printf("\nSum: %d", sum);
+}
+
+int main(){
+    int last;
+
+    printf("Enter a number: ");
+    scanf("%d", &last);
+
+    PrintAndCount(last);
+
+    return 0;
+}
