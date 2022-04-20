@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+void VowelCounter() {
+    char word[20];
+
+    printf("Enter a 20 letter word: ");
+    scanf("%s", word);
+
+    int vowel = 0;
+
+    for (int i = 0; i < 20; i++) {
+        switch (word[i]) {
+            case 'A':
+            case 'a':
+                vowel++;
+                break;
+            case 'E':
+            case 'e':
+                vowel++;
+                break;
+            case 'I':
+            case 'i':
+                vowel++;
+                break;
+            case 'O':
+            case 'o':
+                vowel++;
+                break;
+            case 'U':
+            case 'u':
+                vowel++;
+                break;
+        }
+    }
+    printf("\tVowel/s: %d", vowel);
+}
+
+int main(){
+    VowelCounter();
+
+    return 0;
+}
