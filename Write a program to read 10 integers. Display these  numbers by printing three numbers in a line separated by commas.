@@ -16,7 +16,7 @@ int main(){
     int counter = 1;
     for (j; j < size; j++) {
         if (counter == 3) {
-            printf("%d \n", values[j]);
+            printf("%d, \n", values[j]);
             counter = 0;
         } else {
             printf("%d ", values[j]);
