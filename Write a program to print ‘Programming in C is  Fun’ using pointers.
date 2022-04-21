@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(void) {
+    char hello[] = {"Programming in C is Fun"};
+    char *p;
+
+    p = hello;
+
+    while (*p != '\0') {
+        printf("%c", *p);
+        p++;
+    }
+
+    return 0;
+}
