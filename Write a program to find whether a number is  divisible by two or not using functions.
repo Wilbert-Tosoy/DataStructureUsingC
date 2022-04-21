@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+void DivisibleBy2();
+
+int main(void) {
+    DivisibleBy2();
+
+    return 0;
+}
+
+void DivisibleBy2() {
+    int number;
+
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    (number % 2 == 0) ? printf("Divisible by 2") : printf("Not divisible by 2");
+
+}
