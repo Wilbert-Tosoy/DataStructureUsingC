@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <math.h>
+
+void SimpleInterest();
+void CompoundInterest();
+
+int main(){
+    int choice;
+
+    printf("Enter the corresponding number \n");
+    printf("\t1. ------ Simple Interest\n");
+    printf("\t2. ------ Compound Interest\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        SimpleInterest();
+    } else if (choice == 2) {
+        CompoundInterest();
+    } else {
+        printf("Syntax Error!");
+    }
+}
+
+void SimpleInterest() {
+    float finalAmount, principalBalance, interestRate, timeInYears;
+
+    printf("Enter the principal amount: ");
+    scanf("%f", &principalBalance);
+    printf("Enter the interest rate: ");
+    scanf("%f", &interestRate);
+    printf("Enter the how many years: ");
+    scanf("%f", &timeInYears);
+
+    interestRate = interestRate / 100;
+    finalAmount = principalBalance * interestRate * timeInYears;
+
+    printf("\tFinal Amount: %f", finalAmount);
+
+}
+
+void CompoundInterest() {
+    float finalAmount, principal, interest, numberOfTimesCompounded, years;
+
+    printf("Enter the principal amount: ");
+    scanf("%f", &principal);
+    printf("Enter the interest rate: ");
+    scanf("%f", &interest);
+    printf("Enter the number of times compounded in one year: ");
+    scanf("%f", &numberOfTimesCompounded);
+    printf("Enter how many years: ");
+    scanf("%f", &years);
+
+    interest = interest / 100;
+    finalAmount = pow((1 + interest / numberOfTimesCompounded), (numberOfTimesCompounded * years)) * principal;
+    printf("\tFinal Amount: %.2f ", finalAmount);
+
+}
