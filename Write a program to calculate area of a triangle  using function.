@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <math.h>
+
+void TraditionalFormula();
+void HeronsFormula();
+
+int main(void) {
+    int choice;
+    printf("Input the corresponding number\n");
+    printf("\t1. Traditional Formula\n\t2. Heron's Formula\n");
+    printf("Your Choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+    case 1:
+        TraditionalFormula();
+        break;
+    case 2:
+        HeronsFormula();
+        break;
+    default:
+        printf("Syntax Error!");
+    }
+
+    return 0;
+}
+
+void TraditionalFormula() {
+    float area, base, height;
+
+    printf("Enter the base length: ");
+    scanf("%f", &base);
+    printf("Enter the height length: ");
+    scanf("%f", &height);
+
+    area = 0.5 * base * height;
+
+    printf("Area: %0.2f units^2", area);
+}
+
+void HeronsFormula() {
+    float a, b, c, semiPerimeter, area;
+
+    printf("Enter the length of a: ");
+    scanf("%f", &a);
+    printf("Enter the length of b: ");
+    scanf("%f", &b);
+    printf("Enter the length of c: ");
+    scanf("%f", &c);
+
+    semiPerimeter = (a + b + c) / 2;
+
+    area = sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
+
+    printf("Area: %.2f units^2", area);
+}
