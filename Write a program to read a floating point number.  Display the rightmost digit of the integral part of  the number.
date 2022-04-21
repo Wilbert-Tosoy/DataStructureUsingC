@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(){
+    float number;
+    int convert, result;
+
+    printf("Enter a float number: ");
+    scanf("%f", &number);
+
+    convert = (int)number;
+    result = convert % 10;
+    printf("Result: %d", result);
+
+    return 0;
+}
