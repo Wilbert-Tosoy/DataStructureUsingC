@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <math.h>
+
+void CalculateArea();
+void TraditionalFormula();
+void HeronsFormula();
+
+int main() {
+    CalculateArea();
+
+    return 0;
+}
+
+void CalculateArea() {
+    int choice;
+
+    printf("\t1. Traditional Formula\n\t2. Heron's Formula\n");
+    printf("Enter the corresponding number: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+    case 1:
+        TraditionalFormula();
+        break;
+    case 2:
+        HeronsFormula();
+        break;
+    default:
+        printf("Syntax Error");
+    }
+}
+
+void TraditionalFormula() {
+    float base, height;
+    float *ptrBase, *ptrHeight;
+
+    printf("Enter the length of base: ");
+    scanf("%f", &base);
+    ptrBase = &base;
+    printf("Enter the length of height: ");
+    scanf("%f", &height);
+    ptrHeight = &height;
+
+    float area = (*ptrBase) * (*ptrHeight) * 0.5;
+    printf("Area: %.2f", area);
+
+}
+
+void HeronsFormula() {
+    float a, b, c;
+    float *ptrA, *ptrB, *ptrC;
+    float semiPerimeter, area;
+
+    printf("Enter the length of a: ");
+    scanf("%f", &a);
+    ptrA = &a;
+    printf("Enter the length of b: ");
+    scanf("%f", &b);
+    ptrB = &b;
+    printf("Enter the length of c: ");
+    scanf("%f", &c);
+    ptrC = &c;
+
+    semiPerimeter = (*ptrA + *ptrB + *ptrC) / 2;
+    area = sqrt(semiPerimeter * (semiPerimeter - (*ptrA)) * (semiPerimeter - (*ptrB)) * (semiPerimeter - (*ptrC)));
+    printf("Area: %.2f", area);
+}
