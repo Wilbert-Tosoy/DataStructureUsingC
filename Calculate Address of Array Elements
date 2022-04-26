@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void CalculateAddressOfArrayElements() {
+    int size;
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    for (int i = 0; i < size; i++) {
+        printf("Enter the value of index %d: ", i);
+        scanf("%d", &arr[i]);
+    }
+    int w = sizeof(arr[0]);
+    int base = &arr[0];
+
+    printf("Enter the index between 0 and %d that needs to be calculated: ", size - 1);
+    int k;
+    scanf("%d", &k);
+
+    printf("\tBase address: %d\n", base);
+    printf("\tThe size of one element: %d\n", w);
+    printf("\tIndex: %d\n", k);
+
+    int addressOfDataElement;
+
+    addressOfDataElement = ((w * k) - (w * 0) + base);
+    printf("Address of Data Element: %d", addressOfDataElement);
+}
+
+int main(void) {
+    CalculateAddressOfArrayElements();
+
+    return 0;
+}
