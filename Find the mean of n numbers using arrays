@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Find the mean of n numbers using arrays.
+void Mean() {
+    int size;
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size];
+    int sum = 0;
+
+    for (int i = 0; i < size; i++) {
+        printf("Enter the value of Array[%d]: ", i);
+        scanf("%d", &arr[i]);
+        sum = sum + arr[i];
+    }
+    printf("Array Sum: %d\n", sum);
+
+    float mean;
+    mean = (float)sum / (float)size;
+    printf("Array Mean: %.2f", mean);
+
+}
+
+int main() {
+    Mean();
+
+    return 0;
+}
