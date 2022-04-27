@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+// Read and display n numbers using an array.
+void ReadAndDisplay() {
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size];
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("Enter the value of Array[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+    printf("Array Element/s: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+}
+
+int main(void) {
+    ReadAndDisplay();
+
+    return 0;
+}
