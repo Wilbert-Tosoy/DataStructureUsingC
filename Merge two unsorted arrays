@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+// Merge two unsorted arrays.
+int main(void) {
+    int i;
+
+    int size1;
+    printf("Enter the size of the first array: ");
+    scanf("%d", &size1);
+
+    // Inputting the elements of the first array.
+    int array1[size1];
+    for (i = 0; i < size1; i++) {
+        printf("\tArray1[%d]: ", i);
+        scanf("%d", &array1[i]);
+    }
+
+    int size2;
+    printf("Enter the size of the second array: ");
+    scanf("%d", &size2);
+
+    // Inputting the elements of the second array.
+    int array2[size2];
+    for (i = 0; i < size2; i++) {
+        printf("\tArray2[%d]: ", i);
+        scanf("%d", &array2[i]);
+    }
+
+    // Printing the elements of Array1.
+    printf("Array1: ");
+    for (i = 0; i < size1; i++) {
+        printf("%d ", array1[i]);
+    }
+
+    // Printing the elements of Array2.
+    printf("\nArray2: ");
+    for (i = 0; i < size2; i++) {
+        printf("%d ", array2[i]);
+    }
+
+    int totalSize = size1 + size2;
+    int array3[totalSize];
+    int counter = 0;
+
+    // Copying the elements of Array1 into Array3.
+    for (i = 0; i < size1; i++) {
+        array3[counter] = array1[i];
+        counter++;
+    }
+
+    // Copying the elements of Array2 into Array3
+    for (i = 0; i < size2; i++) {
+        array3[counter] = array2[i];
+        counter++;
+    }
+
+    // Print the Merged Array
+    printf("\nMerged Array: ");
+    for (i = 0; i < totalSize; i++) {
+        printf("%d ", array3[i]);
+    }
+
+    return 0;
+}
