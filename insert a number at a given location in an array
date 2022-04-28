@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+// Write a program to insert a number at a given location in an array.
+int main(void) {
+    int i;
+
+    int size;
+    printf("Enter the array size: ");
+    scanf("%d", &size);
+
+    int val[size];
+    for (i = 0; i < size; i++) {
+        printf("Array[%d]: ", i);
+        scanf("%d", &val[i]);
+    }
+
+    int position;
+    printf("Enter the position: ");
+    scanf("%d", &position);
+
+    i = size;
+    if (position > size) {
+        val[i + 1] = position;
+    } else {
+        while (i >= position) {
+            val[i + 1] = val[i];
+            i--;
+        }
+    }
+
+    int value;
+    printf("Enter the value that must inserted: ");
+    scanf("%d", &value);
+
+    size = size + 1;
+    val[position] = value;
+
+    for (i = 0; i < size; i++) {
+        printf("%d ", val[i]);
+    }
+
+    return 0;
+}
