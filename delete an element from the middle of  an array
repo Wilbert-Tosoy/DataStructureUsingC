@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+// Delete an element from the middle of an array.
+int main(void) {
+    int i;
+
+    int size;
+    printf("Enter the array size: ");
+    scanf("%d", &size);
+
+    // Inputting the elements.
+    int arr[size];
+    for (i = 0; i < size; i++) {
+        printf("Array[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    // Printing the elements before deletion.
+    printf("Before the deletion: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    int position;
+    printf("\nEnter the position: ");
+    scanf("%d", &position);
+
+    // Moving the elements to the left.
+    i = position;
+    size = size - 1;
+    while (i <= size) {
+        arr[i] = arr[i + 1];
+        i++;
+    }
+
+    // Printing the elements after the deletion.
+    printf("After the deletion: ");
+    for (i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
