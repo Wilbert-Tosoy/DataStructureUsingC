@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+// Merged two sorted arrays.
+int main(void) {
+    int i;
+
+    // Getting the size of first array.
+    int size1;
+    printf("Enter the size of Array1: ");       
+    scanf("%d", &size1);
+
+    // Inputting the elements of Array1.
+    int array1[size1];
+    for (i = 0; i < size1; i++) {               
+        printf("Array1[%d]: ", i);
+        scanf("%d", &array1[i]);
+    }
+
+    // Getting the size of second array.
+    int size2;
+    printf("Enter the size of Array2: ");
+    scanf("%d", &size2);
+
+    // Inputting the elements of Array2.
+    int array2[size2];
+    for (i = 0; i < size2; i++) {
+        printf("Array2[%d]: ", i);
+        scanf("%d", &array2[i]);
+    }
+
+    // Printing the elements of Array1.
+    printf("Array1 Elements: ");
+    for (i = 0; i < size1; i++) {
+        printf("%d ", array1[i]);
+    }
+
+    // Printing the elements of Array2.
+    printf("\nArray2 Elements: ");
+    for (i = 0; i < size2; i++) {
+        printf("%d ", array2[i]);
+    }
+
+    int totalSize = size1 + size2;
+    int array3[totalSize];
+    int counter1 = 0, counter2 = 0, counter3 = 0;
+
+    while (counter1 < size1 && counter2 < size2) {
+        if (array1[counter1] < array2[counter2]) {
+            array3[counter3] = array1[counter1];
+            counter1++;
+        } else {
+            array3[counter3] = array2[counter2];
+            counter2++;
+        }
+        counter3++;
+    }
+
+    if (counter1 == size1) {
+        while (counter2 < size2) {
+            array3[counter3] = array2[counter2];
+            counter2++;
+        }
+    }
+
+    if (counter2 == size2) {
+        while (counter1 < size1) {
+            array3[counter3] = array1[counter1];
+            counter1++;
+        }
+    }
+
+    printf("\nAscending Merged Array: ");
+    for (i = 0; i < totalSize; i++) {
+        printf("%d ", array3[i]);
+    }
+
+    return 0;
+}
