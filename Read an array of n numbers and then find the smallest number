@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+void read_array(int arr[], int size);
+void print_array(int arr[], int size);
+int find_small(int arr[], int size);
+
+// Read an Array of n number and then find the smallest number.
+int main(void) {
+    int size;
+    printf("Enter the array size: ");
+    scanf("%d", &size);
+
+    int values[size];
+    read_array(values, size);   // Calling the read function.
+
+    print_array(values, size);  // Calling the print function.
+
+    int smallest;
+    smallest = find_small(values, size);    // Calling the find function.
+
+    printf("\nThe smallest number in the array: %d", smallest);
+
+    return 0;
+}
+
+// Inputting the elements of the array.
+void read_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("Array[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+}
+
+// Printing the elements of the array.
+void print_array(int arr[], int size) {
+    printf("Array Elements: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+
+}
+
+// Find the smallest number among all the elements.
+int find_small(int arr[], int size) {
+    int small = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < small) {
+            small = arr[i];
+        }
+    }
+
+    return small;
+}
