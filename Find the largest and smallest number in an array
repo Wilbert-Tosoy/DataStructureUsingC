@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Declarations of functions
+void read_array(int arr[], int size);
+void display_array(int arr[], int size);
+int find_largest(int arr[], int size);
+int find_smallest(int arr[], int size);
+
+// Find the largest and smallest number in an array.
+int main(void) {
+    int size;
+    printf("Enter the array size: ");
+    scanf("%d", &size);
+
+    int values[size];
+
+    read_array(values, size);
+    display_array(values, size);
+
+
+    int largest = find_largest(values, size);
+    printf("\nLargest Element: %d", largest);
+
+    int smallest = find_smallest(values, size);
+    printf("\nSmallest Element: %d", smallest);
+
+    return 0;
+}
+
+// Definition of read_array function.
+void read_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("Array[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+}
+
+// Definition of display_array function.
+void display_array(int arr[], int size) {
+    printf("Array Elements: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+// Definition of find_largest function.
+int find_largest(int arr[], int size) {
+    int largest = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+
+// Definition of find_smallest function.
+int find_smallest(int arr[], int size) {
+    int smallest = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+    return smallest;
+}
