@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int row_size;
+    printf("Enter the row size: ");
+    scanf("%d", &row_size);
+
+    int column_size;
+    printf("Enter the column size: ");
+    scanf("%d", &column_size);
+
+    int array[row_size][column_size];
+
+    int w = sizeof(int);
+    int base_address = &array;
+
+    printf("%d", base_address);
+
+    int i;
+    printf("\nEnter the subscript of i: ");
+    scanf("%d", &i);
+
+    int j;
+    printf("Enter the subscript of j: ");
+    scanf("%d", &j);
+
+    int address;
+    address = (w * (column_size * ((j - 1) + (i - 1)))) + base_address;
+
+    printf("nAddress (A[%d][%d]) = %d", i, j, address);
+
+
+    return 0;
+}
