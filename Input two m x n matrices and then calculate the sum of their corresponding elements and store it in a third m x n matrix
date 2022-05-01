@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+// Input two m x n matrices and then calculate the sum of their corresponding elements and store it in a third m x n matrix.
+int main() {
+    // Get the row size.
+    int row_size;
+    printf("Enter the row size: ");
+    scanf("%d", &row_size);
+
+    // Get the column size.
+    int column_size;
+    printf("Enter the column size: ");
+    scanf("%d", &column_size);
+
+    // Declaring the arrays.
+    int matrix1[row_size][column_size];
+    int matrix2[row_size][column_size];
+    int sum_matrix[row_size][column_size];
+
+    // Declaring the subscripts.
+    int i, j;
+
+    // Initializing Matrix-1.
+    printf("\nEnter the elements of Matrix-1\n");
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            printf("Matrix-1 [%d][%d]: ", i, j);
+            scanf("%d", &matrix1[i][j]);
+        }
+    }
+
+    // Print the elements of Matrix-1.
+    printf("\nMatrix-1 Elements\n");
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            printf("%d\t", matrix1[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Initializing Matrix-2.
+    printf("\nEnter the elements of Matrix-2\n");
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            printf("Matrix-2 [%d][%d]: ", i, j);
+            scanf("%d", &matrix2[i][j]);
+        }
+    }
+
+    // Print the elements of Matrix-2.
+    printf("\nMatrix-2 Elements\n");
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            printf("%d\t", matrix2[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Initializing Sum Matrix.
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            sum_matrix[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    // Print the Sum Matrix.
+    printf("\nSum Matrix Elements\n");
+    for (i = 0; i < row_size; i++) {
+        for (j = 0; j < column_size; j++) {
+            printf("%d\t", sum_matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
