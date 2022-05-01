@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+// Read and display a matrix.
+int main() {
+    // Get the row size.
+    int row_size;
+    printf("Enter the row size: ");
+    scanf("%d", &row_size);
+
+    // Get the column size.
+    int column_size;
+    printf("Enter the column size: ");
+    scanf("%d", &column_size);
+
+    // Initialize the array.
+    int matrix[row_size][column_size];
+
+    // Input the elements into the array.
+    for (int i = 0; i < row_size; i++) {
+        for (int j = 0; j < column_size; j++) {
+            printf("Matrix [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Print the elements.
+    printf("\n");
+    for (int i = 0; i < row_size; i++) {
+        for (int j = 0; j < column_size; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
