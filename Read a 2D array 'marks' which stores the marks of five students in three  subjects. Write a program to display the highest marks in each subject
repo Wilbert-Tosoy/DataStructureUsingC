@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+// Read a 2D array marks which stores the marks of students in different subjects and display the highest marks in each subject.
+int main () {
+    // Get the number of students.
+    int students;
+    printf("Enter the number of students: ");
+    scanf("%d", &students);
+
+    // Get the number of subjects.
+    int subjects;
+    printf("Enter the number of subjects: ");
+    scanf("%d", &subjects);
+
+    // Initialize the 2D array.
+    int marks[students][subjects];
+
+    // Input the elements of the array.
+    for (int i = 0; i < students; i++) {
+        printf("Enter the marks obtained by student %d: \n", i + 1);
+        for (int j = 0; j < subjects; j++) {
+            printf("Subject %d: ", j + 1);
+            scanf("%d", &marks[i][j]);
+        }
+    }
+
+    // Print the elements.
+    printf("\nMarks\n");
+    for (int i = 0; i < students; i++) {
+        for (int j = 0; j < subjects; j++) {
+            printf("%d\t", marks[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Print the highest mark in each subject.
+    printf("\n");
+    for (int j = 0; j < subjects; j++) {
+        int highest_mark = 0;
+        for (int i = 0; i < students; i++) {
+            if (marks[i][j] > highest_mark) {
+                highest_mark = marks[i][j];
+            }
+        }
+        printf("The highest mark obtained in the subject %d: %d\n", j + 1, highest_mark);
+    }
+
+    return 0;
+}
