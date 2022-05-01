@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Generate Pascal's Triangle using 2D array.
+int main() {
+    // Get the size of row.
+    int row_size;
+    printf("Enter the row size: ");
+    scanf("%d", &row_size);
+
+    // Get the size of column.
+    int column_size;
+    printf("Enter the column size: ");
+    scanf("%d", &column_size);
+
+    // Initialize the array.
+    int array[row_size][column_size];
+
+    // Generate the Pascal's Triangle.
+    array[0][0] = array[1][0] = array[1][1] = 1;
+    int row = 2;
+    while (row <= 7) {
+        array[row][0] = 1;
+        for (int column = 1; column <= row; column++) {
+            array[row][column] = array[row - 1][column - 1] + array[row - 1][column];
+        }
+        row++;
+    }
+
+    // Print the Pascal's Triangle.
+    for (int i = 0; i < 7; i++) {
+        printf("\n");
+        for (int j = 0; j <= i; j++) {
+            printf("%d\t", array[i][j]);
+        }
+    }
+
+    return 0;
+}
