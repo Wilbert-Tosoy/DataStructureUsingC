@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+// Using 2D array to print the total sales by each salesman and total sales of each item.
+int main() {
+    // Get the number of salesman.
+    int salesman;
+    printf("Enter the number of salesman: ");
+    scanf("%d", &salesman);
+
+    // Get the number of products.
+    int products;
+    printf("Enter the number of products: ");
+    scanf("%d", &products);
+
+    // Initialize the 2D array.
+    int sales[salesman][products];
+
+    // Input the elements of 2D array.
+    for (int i = 0; i < salesman; i++) {
+        printf("Enter the sales of the 3 products of salesman %d: \n", i + 1);
+        for (int j = 0; j < products; j++) {
+            printf("Product %d: ", j + 1);
+            scanf("%d", &sales[i][j]);
+        }
+    }
+
+    // Print the elements of 2D array.
+    for (int i = 0; i < salesman; i++) {
+        printf("\n");
+        for (int j = 0; j < products; j++) {
+            printf("%d\t", sales[i][j]);
+        }
+    }
+
+    // Get the total sales of different salesman.
+    for (int i = 0; i < salesman; i++) {
+        int total_sales = 0;
+        for (int j = 0; j < products; j++) {
+            total_sales = total_sales + sales[i][j];
+        }
+        printf("\nTotal Sales By Salesman %d: %d", i + 1, total_sales);
+    }
+
+    // Get the total sales of different products.
+    for (int j = 0; j < products; j++) {
+        int total_sales = 0;
+        for (int i = 0; i < salesman; i++) {
+            total_sales = total_sales + sales[i][j];
+        }
+        printf("\nTotal Sales of item %d: %d", j + 1, total_sales);
+    }
+
+    return 0;
+}
