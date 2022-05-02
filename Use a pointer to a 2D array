@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Use a pointer to a 2D array.
+int main() {
+    // Declaration of variables.
+    int row, column;
+
+    // Initialization of variables.
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    // Declaration and initialization of 2D array.
+    int matrix[row][column];
+    printf("\nEnter the elements of Matrix.\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Matrix [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Declaration and initialization of pointer.
+    int (*pointer_matrix)[column];
+    pointer_matrix = matrix;
+
+    // Display the elements using the pointer.
+    printf("\nMatrix Elements\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", (*(pointer_matrix + i))[j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
