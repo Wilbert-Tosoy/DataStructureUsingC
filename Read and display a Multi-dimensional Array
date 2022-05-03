@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+// Declaration of functions.
+void read_array(int row, int column, int page, int array[page][row][column]);
+void display_array(int row, int column, int page, int array[page][row][column]);
+
+// Read and Display a Multi-dimensional Array.
+int main( ) {
+    // Declaration the variables.
+    int row, column, page;
+
+    // Initialization of variables.
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+    printf("Enter the number of page: ");
+    scanf("%d", &page);
+
+    // Declaration of Multi-dimensional Array.
+    int matrix[page][row][column];
+
+    // Initialization of Matrix.
+    read_array(row, column, page, matrix);
+
+    // Print the elements.
+    display_array(row, column, page, matrix);
+
+    return 0;
+}
+
+// Function definition of read_array().
+void read_array(int row, int column, int page, int array[page][row][column]) {
+    printf("\nEnter the elements\n");
+    for (int k = 0; k < page; k++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                printf("Matrix [%d][%d][%d]: ", k, i, j);
+                scanf("%d", &array[k][i][j]);
+            }
+        }
+    }
+}
+
+// Function definition of display_array().
+void display_array(int row, int column, int page, int array[page][row][column]) {
+    printf("\nMulti-dimensional Elements\n");
+    for (int k = 0; k < page; k++) {
+        printf("Page %d\n", k + 1);
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                printf("%d\t", array[k][i][j]);
+            }
+        printf("\n");
+        }
+    }
+}
