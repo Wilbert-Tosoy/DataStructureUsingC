@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Declaration of functions.
+void read_array(int row, int column, int (*pointer_array)[column]);
+void display_array(int row, int column, int (*pointer_array)[column]);
+void sparse_matrix_checker(int row, int column, int (*pointer_array)[column]);
+
+// Check whether a matrix is a sparse matrix or not.
+int main() {
+    // Declaration and initialization of variables.
+    int row, column;
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    // Declaration and initialization of matrix.
+    int matrix[row][column];
+    int (*pointer_array)[column];
+    pointer_array = matrix;
+    read_array(row, column, pointer_array);
+
+    // Display the elements.
+    display_array(row, column, pointer_array);
+
+    // Check Array.
+    sparse_matrix_checker(row, column, pointer_array);
+
+    return 0;
+}
+
+// Function definition of read_array().
+void read_array(int row, int column, int (*pointer_array)[column]) {
+    printf("\nEnter the elements\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Matrix[%d][%d]: ", i, j);
+            scanf("%d", *(pointer_array + i) + j);
+        }
+    }
+}
+
+// Function definition of display_array.
+void display_array(int row, int column, int (*pointer_array)[column]) {
+    printf("\nMatrix Elements\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", *( *(pointer_array + i) + j));
+        }
+    printf("\n");
+    }
+}
+
+// Function definition of sparse_matrix_checker().
+void sparse_matrix_checker(int row, int column, int (*pointer_array)[column]) {
+    int sparse = (row * column) / 2;
+    int count = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            if (*( pointer_array[ i ] + j ) == 0) {
+                count = count + 1;
+            }
+        }
+    }
+    (count >= sparse) ? printf("\nA Sparse Matrix") : printf("\nNot A Sparse Matrix");
+}
