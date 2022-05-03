@@ -49,7 +49,7 @@ void display_array(int row, int column, int page, int array[page][row][column]) 
         printf("Page %d\n", k + 1);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
-                printf("%d\t", array[k][i][j]);
+                printf("%d\t", *(*(*(array + i) + j) + k));
             }
         printf("\n");
         }
