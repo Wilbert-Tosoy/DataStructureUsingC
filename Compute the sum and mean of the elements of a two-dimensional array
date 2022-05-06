@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Write a program to compute the sum and mean of the elements of a two-dimensional array.
+int main() {
+    int row, column;
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int array[row][column];
+    int sum = 0;
+
+    printf("\nEnter the elements\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array[%d][%d]: ", i, j);
+            scanf("%d", &array[i][j]);
+            sum = sum + array[i][j];
+        }
+    }
+
+    int mean = sum / (row * column);
+
+    printf("\nSum of elements: %d", sum);
+    printf("\nMean of elements: %d", mean);
+
+    return 0;
+}
