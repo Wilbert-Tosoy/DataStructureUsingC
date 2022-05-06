@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+int main() {
+    int students, subjects;
+    printf("Enter the number of students: ");
+    scanf("%d", &students);
+    printf("Enter the number of subjects: ");
+    scanf("%d", &subjects);
+
+    int marks[students][subjects];
+
+    printf("\nEnter the marks.\n");
+    for (int i = 0; i < students; i++) {
+        for (int j = 0; j < subjects; j++) {
+            printf("Student #%d - Subject #%d: ", i + 1, j + 1);
+            scanf("%d", &marks[i][j]);
+        }
+    }
+
+    printf("\nSubjects Average Marks.\n");
+    for (int j = 0; j < subjects; j++) {
+        double subject_average = 0;
+        printf("Subject #%d: ", j + 1);
+        for (int i = 0; i < students; i++) {
+            subject_average = subject_average + (double)marks[i][j];
+        }
+        subject_average = subject_average / students;
+        printf("%.2lf\n", subject_average);
+    }
+
+    printf("\nStudents Average Marks.\n");
+    for (int i = 0; i < students; i++) {
+        double student_average = 0;
+        printf("Students #%d: ", i + 1);
+        for (int j = 0; j < subjects; j++) {
+            student_average = student_average + (double)marks[i][j];
+        }
+        student_average = student_average / subjects;
+        printf("%.2lf\n", student_average);
+    }
+
+    printf("\nStudents with below 50 average.\n");
+    for (int i = 0; i < students; i++) {
+        double student_average = 0;
+        for (int j = 0; j < subjects; j++) {
+            student_average = student_average + (double)marks[i][j];
+        }
+        student_average = student_average / subjects;
+        if (student_average < 50) {
+            printf("-Student #%d\n", i + 1);
+        }
+    }
+
+    printf("\n\n\tStudents Scores\n\n");
+    for (int i = 0; i < students; i++) {
+        printf("Student #%d: ", i + 1);
+        for (int j = 0; j < subjects; j++) {
+            printf("\t%d", marks[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
