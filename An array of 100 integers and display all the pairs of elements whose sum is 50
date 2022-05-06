@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+// An array of 100 integers and display all the pairs of elements whose sum is 50.
+int main() {
+    int array[100];
+
+    for (int i = 0; i < 100; i++) {
+        array[i] = i + 1;
+    }
+
+    for (int i = 0; i < 100; i++) {
+        int base = array[i];
+        for (int j = 0; j < 100; j++) {
+            if (base + array[j] == 50) {
+                printf("-> %d, %d \n", base, array[j]);
+            }
+        }
+    }
+
+    return 0;
+}
