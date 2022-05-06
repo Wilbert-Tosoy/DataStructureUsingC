@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+// Functions Declaration.
+void read_display();
+void display(int row, int column, int matrix[row][column]);
+
+// Read and display a square using function.
+int main() {
+    read_display();
+
+    return 0;
+}
+
+// Function definition of read_display().
+void read_display() {
+    int row, column;
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int matrix[row][column];
+
+    for (int i = 0; i < row ; i++) {
+        for (int j = 0; j < column; j++) {
+            matrix[i][j] = 0;
+        }
+    }
+
+    display(row, column, matrix);
+
+}
+
+// Function definition of display().
+void display(int row, int column, int matrix[row][column]) {
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            if (i == 0 || i == row - 1) {
+                printf("%d", matrix[i][j]);
+            } else if (i != 0) {
+                if (j == 0 || j == column - 1) {
+                    printf("%d", matrix[i][j]);
+                } else {
+                    printf(" ");
+                }
+            }
+        }
+        printf("\n");
+    }
+}
