@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+// Function declaration.
+void read_array();
+void add(int row, int column, int(*pointer1)[column], int(*pointer2)[column]);
+
+// Add two 2D array using pointers.
+int main() {
+    read_array();
+
+    return 0;
+}
+
+// Function definition of read_array().
+void read_array() {
+    int row1, row2, column1, column2;
+
+    printf("Enter the row size of Array-1: ");
+    scanf("%d", &row1);
+    printf("Enter the column size of Array-1: ");
+    scanf("%d", &column1);
+
+    printf("\nEnter the row size of Array-2: ");
+    scanf("%d", &row2);
+    printf("Enter the column size of Array-2: ");
+    scanf("%d", &column2);
+
+    if (row1 != row2 || column1 != column2) {
+        printf("The size of both rows and columns must be equal.");
+    }
+    else {
+        int array1[row1][column1];
+        int array2[row2][column2];
+
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < column1; j++) {
+                printf("Array-1[%d][%d]: ", i, j);
+                scanf("%d", &array1[i][j]);
+            }
+        }
+        printf("\n");
+        for (int i = 0; i < row2; i++) {
+            for (int j = 0; j < column2; j++) {
+                printf("Array-2 [%d][%d]: ", i, j);
+                scanf("%d", &array2[i][j]);
+            }
+        }
+        add(row1, column1, array1, array2);
+    }
+
+}
+
+// Function definition of add().
+void add(int row, int column, int(*pointer1)[column], int(*pointer2)[column]) {
+    int sum[row][column];
+
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        int temp = 0;
+        for (int j = 0; j < column; j++) {
+            temp = *(*(pointer1 + i) + j) + *( *(pointer2 + i) + j);
+            sum[i][j] = temp;
+        }
+    }
+
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", sum[i][j]);
+        }
+        printf("\n");
+    }
+}
