@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int row, column;
+
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int array[row][column];
+
+    int product = 1;
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array[%d][%d]: ", i , j);
+            scanf("%d", &array[i][j]);
+            if (j > i) {
+                product = product * array[i][j];
+            }
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", array[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Product: %d", product);
+
+    return 0;
+}
