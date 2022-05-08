@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int row, column;
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int array[row][column];
+    int (*pointer)[column];
+    pointer = array;
+
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array[%d][%d]: ", i, j);
+            scanf("%d", &*(*(pointer + i) + j));
+        }
+    }
+    printf("\n");
+    int sum = 0;
+    for (int  i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", *(*(pointer + i) + j));
+            if (i == j) {
+                sum = sum + *(*(pointer + i) + j);
+            }
+        }
+        printf("\n");
+    }
+    printf("\nSum: %d", sum);
+    
+    return 0;
+}
