@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main() {
+    int row, column;
+
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int array[row][column];
+    int odd_counter = 0;
+    int even_counter = 0;
+
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array[%d][%d]: ", i, j);
+            scanf("%d", &array[i][j]);
+            if (array[i][j] % 2 == 0) {
+                even_counter++;
+            } else {
+                odd_counter++;
+            }
+        }
+    }
+
+    int odd[odd_counter];
+    int even[even_counter];
+    printf("\nArray Elements\n");
+    int k = 0;
+    int l = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", array[i][j]);
+            if (array[i][j] % 2 == 0) {
+                even[l] = array[i][j];
+                l++;
+            } else {
+                odd[k] = array[i][j];
+                k++;
+            }
+        }
+        printf("\n");
+    }
+    printf("Odds: ");
+    for (int i = 0; i < odd_counter; i++) {
+        printf("%d ", odd[i]);
+    }
+    printf("\nEvens: ");
+    for (int i = 0; i < even_counter; i++) {
+        printf("%d ", even[i]);
+    }
+
+    return 0;
+}
