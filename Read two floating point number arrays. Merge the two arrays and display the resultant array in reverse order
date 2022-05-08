@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    int size1, size2;
+
+    printf("Enter the size of Array-1: ");
+    scanf("%d", &size1);
+    printf("\nEnter the size of Array-2: ");
+    scanf("%d", &size2);
+
+    float array1[size1];
+    float array2[size2];
+
+    for (int i = 0; i < size1; i++) {
+        printf("Array-1 [%d]: ", i);
+        scanf("%f", &array1[i]);
+    }
+
+    printf("\n");
+    for (int i = 0; i < size2; i++) {
+        printf("Array-2 [%d]: ", i);
+        scanf("%f", &array2[i]);
+    }
+
+    printf("\nArray-1 Elements\n");
+    for (int i = 0; i < size1; i++) {
+        printf("%.2f\t", array1[i]);
+    }
+
+    printf("\n\nArray-2 Elements\n");
+    for (int i = 0; i < size2; i++) {
+        printf("%.2f\t", array2[i]);
+    }
+
+    int size3 = size1 + size2;
+    float array3[size3];
+
+    int i = 0;
+    printf("\n\n");
+    for (i; i < size1; i++) {
+        array3[i] = array1[i];
+    }
+    int j = i;
+    for (int i = 0; i < size2; i++) {
+        array3[j] = array2[i];
+        j++;
+    }
+
+    for (int i = size3 - 1; i >= 0; i--) {
+        printf("%.2f ", array3[i]);
+    }
+
+    return 0;
+}
