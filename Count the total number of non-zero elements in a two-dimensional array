@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Count the total number of non-zero elements in a two-dimensional array.
+int main() {
+    int row, column;
+
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    int array[row][column];
+
+    printf("\n");
+    int total = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array[%d][%d]: ", i, j);
+            scanf("%d", &array[i][j]);
+            if (array[i][j] != 0) {
+                total++;
+            }
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", array[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Total: %d", total);
+
+    return 0;
+}
