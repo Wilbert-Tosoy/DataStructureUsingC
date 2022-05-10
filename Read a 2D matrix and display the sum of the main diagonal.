@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+// Functions declaration.
+void read_array();
+void sum(int row, int column, int array[10][10]);
+void display(int row, int column, int array[10][10]);
+
+int main() {
+    read_array();
+
+    return 0;
+}
+
+// Function definitions.
+void read_array() {
+    int row, column, array[10][10];
+
+    printf("Enter the row size: ");
+    scanf("%d", &row);
+    printf("Enter the column size: ");
+    scanf("%d", &column);
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("Array [%d][%d]: ", i, j);
+            scanf("%d", &array[i][j]);
+        }
+    }
+    display(row, column, array);
+    sum(row, column, array);
+
+}
+
+// Function definition of display().
+void display(int row, int column, int array[10][10]) {
+    printf("\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d\t", array[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Function definition of sum().
+void sum(int row, int column, int array[10][10]) {
+    int sum = 0;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            if (i == j) {
+                sum = sum + array[i][j];
+            }
+        }
+    }
+    printf("\nSum: %d", sum);
+}
