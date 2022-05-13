@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    char uppercase[100];
+    int i = 0;
+
+    printf("Enter a string: ");
+    gets(str);
+
+    while (str[i] != '\0') {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            uppercase[i] = str[i] - 32;
+        } else {
+            uppercase[i] = str[i];
+        }
+        i++;
+    }
+    uppercase[i] = '\0';
+    printf("Uppercase: ");
+    puts(uppercase);
+
+    return 0;
+}
