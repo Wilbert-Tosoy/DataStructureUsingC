@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    char string[20];
+    char sub_string[20];
+    int start, end;
+
+    printf("Enter the main string: ");
+    gets(string);
+    printf("Enter the start of the substring: ");
+    scanf("%d", &start);
+    printf("Enter the last of the substring: ");
+    scanf("%d", &end);
+
+    int i = start;
+    int j = 0;
+    while (string[i] != '\0' && end > 0) {
+        sub_string[j] = string[i];
+        i++;
+        j++;
+        end--;
+    }
+    sub_string[j] = '\0';
+    printf("Substring: ");
+    puts(sub_string);
+
+    return 0;
+}
