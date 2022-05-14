@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    char text[100];
+    char string[20];
+    char insert_text[100];
+
+    int i = 0, j = 0, k = 0, position;
+
+    printf("Enter the main string: ");
+    gets(text);
+    printf("Enter the string that must be inserted: ");
+    gets(string);
+    printf("Enter the position that must be inserted: ");
+    scanf("%d", &position);
+
+    while (text[i] != '\0') {
+        if (i == position) {
+            while (string[k] != '\0') {
+                insert_text[j] = string[k];
+                j++;
+                k++;
+            }
+        }
+        if (i != position || string[k] == '\0') {
+            insert_text[j] = text[i];
+            j++;
+        }
+        i++;
+    }
+
+    insert_text[j] = '\0';
+    printf("New String: ");
+    puts(insert_text);
+
+    return 0;
+}
