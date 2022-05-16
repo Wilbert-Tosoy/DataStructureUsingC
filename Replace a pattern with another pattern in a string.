@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char text[100];
+    char pattern1[20];
+    char pattern2[20];
+
+
+    printf("Text: ");
+    gets(text);
+    puts(text);
+    printf("Pattern1: ");
+    gets(pattern1);
+
+    int text_length = strlen(text);
+    int pattern1_length = strlen(pattern1);
+    int pattern2_length = strlen(pattern2);
+
+    int max = text_length - pattern1_length + 1;
+
+    int i = 0;
+    int found = 0;
+
+    while (i < max) {
+        int k = 0;
+        int counter = 0;
+        if (pattern1[k] != '\0') {
+            int j = i;
+            while (pattern1[k] == text[j]) {
+                j++;
+                k++;
+                counter++;
+            }
+        }
+        if (counter == pattern1_length) {
+            found = 1;
+            break;
+        }
+        i++;
+    }
+    if (found == 1) {
+        printf("Pattern2: ");
+        gets(pattern2);
+
+        int true_length = 0;
+        if (text_length > pattern2_length) {
+            true_length = text_length - pattern2_length;
+        }
+        if (text_length < pattern2_length){
+            true_length = text_length + pattern2_length;
+        }
+        if (pattern1_length == pattern2_length) {
+            true_length = text_length;
+        }
+
+        char new_text[100];
+        int position = i;
+        i = 0;
+
+        printf("%d\n", true_length);
+        while (i != true_length) {
+            if (i == position) {
+                int j = 0;
+                for (j; j != pattern2_length; j++) {
+                    new_text[i] = pattern2[j];
+                    printf("1. %c\n", new_text[i]);
+                    i++;
+                }
+                for (i; i != true_length; i++) {
+                    new_text[i] = text[i];
+                    printf("2. %c\n", new_text[i]);
+                }
+            }
+            if (i == true_length) {
+                break;
+            }
+            new_text[i] = text[i];
+            printf("3. %c\n", new_text[i]);
+            i++;
+        }
+        new_text[i] = '\0';
+        printf("Result: ");
+        puts(new_text);
+    } else {
+        printf("Not found");
+    }
+
+    return 0;
+}
