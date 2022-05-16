@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    char *pointer;
+
+    printf("String: ");
+    gets(string);
+
+    pointer = string;
+
+    int upper = 0;
+    int lower = 0;
+    for (*pointer; *pointer != '\0'; *pointer++) {
+        if (*pointer >= 'a' && *pointer <= 'z') {
+            lower++;
+        } else if (*pointer >= 'A' && *pointer <= 'Z') {
+            upper++;
+        }
+    }
+    printf("Upper: %d\nLower: %d", upper, lower);
+
+    return 0;
+}
