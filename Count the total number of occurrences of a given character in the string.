@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    char character;
+
+    printf("String: ");
+    gets(string);
+    printf("Character: ");
+    scanf("%c", &character);
+
+    int found = 0;
+    int occurence = 0;
+
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (string[i] == character) {
+            found = 1;
+            occurence++;
+        }
+    }
+    if (found == 1) {
+        printf("%c occurs %d times", character, occurence);
+    } else {
+        printf("Not found!");
+    }
+
+    return 0;
+}
