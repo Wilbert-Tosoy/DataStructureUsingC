@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    char character;
+    int location;
+
+    printf("String: ");
+    gets(string);
+    printf("Character: ");
+    scanf("%c", &character);
+    printf("Location: ");
+    scanf("%d", &location);
+
+    printf("Before: ");
+    puts(string);
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (i == location) {
+            string[i] = character;
+        }
+    }
+    printf("After: ");
+    puts(string);
+
+    return 0;
+}
