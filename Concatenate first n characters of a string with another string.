@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    char string1[100];
+    char string2[100];
+    char new_string[100];
+
+    printf("String1: ");
+    gets(string1);
+    printf("String2: ");
+    gets(string2);
+
+    int i = 0;
+    int j = 0;
+
+    while (string2[j] != '\0') {
+        new_string[i] = string1[i];
+        i++;
+        if (string1[i] == '\0') {
+            while (string2[j] != '\0') {
+                new_string[i] = string2[j];
+                j++;
+                i++;
+            }
+        }
+    }
+
+    new_string[i] = '\0';
+    printf("Result: ");
+    puts(new_string);
+
+    return 0;
+}
