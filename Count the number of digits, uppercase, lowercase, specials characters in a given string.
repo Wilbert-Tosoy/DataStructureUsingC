@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    int digits = 0, uppercase = 0, lowercase = 0, specials = 0;
+
+    printf("String: ");
+    gets(string);
+
+    for (int i = 0; string[i] != '\0'; i++) {
+        if (string[i] >= 'A' && string[i] <= 'Z') {
+            uppercase++;
+        } else if (string[i] >= 'a' && string[i] <= 'z') {
+            lowercase++;
+        } else if (string[i] >= '0' && string[i] <= '9'){
+            digits++;
+        } else {
+            specials++;
+        }
+    }
+    printf("Uppercase: %d\nLowercase: %d\nDigits: %d\nSpecials: %d", uppercase, lowercase, digits, specials);
+
+    return 0;
+}
