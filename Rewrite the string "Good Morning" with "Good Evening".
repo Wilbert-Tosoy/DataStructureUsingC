@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char string[100];
+    char pattern[100];
+    char new_pattern[100];
+    char new_string[100];
+
+    printf("String: ");
+    gets(string);
+    printf("Pattern: ");
+    gets(pattern);
+
+    int max = strlen(string) - strlen(pattern) + 1;
+    int i = 0;
+    int found = 0;
+    while (i < max) {
+        int k = i;
+        int j = 0;
+        while (string[k] == pattern[j] && string[k] != '\0') {
+            k++;
+            j++;
+        }
+        if (j == strlen(pattern)) {
+            found = 1;
+            break;
+        }
+        i++;
+    }
+
+    if (found == 1) {
+        int position = i;
+        printf("New Pattern: ");
+        gets(new_pattern);
+        i = 0;
+        int j = 0;
+        while (new_pattern[j] != '\0') {
+            if (i == position) {
+                while (new_pattern[j] != '\0') {
+                    new_string[i] = new_pattern[j];
+                    i++;
+                    j++;
+                }
+            } else {
+                new_string[i] = string[i];
+                i++;
+            }
+        }
+        new_string[i] = '\0';
+        puts(new_string);
+    } else {
+        printf("Pattern not found");
+    }
+
+    return 0;
+}
