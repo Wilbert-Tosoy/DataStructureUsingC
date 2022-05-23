@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    char new_string[100];
+    char final_string[100];
+    int i = 0, j = 0;
+
+    printf("String: ");
+    gets(string);
+
+    while (string[i] != '\0') {
+        if (string[i] == ';') {
+            printf("%c\n", string[j]);
+            new_string[j] = string[j];
+        } else {
+            new_string[j] = string[i];
+            j++;
+        }
+        i++;
+    }
+    new_string[j] = '\0';
+    puts(new_string);
+
+    i = 0, j = 0;
+    while (new_string[i] != '\0') {
+        if (new_string[i] == '.') {
+            new_string[i] = ',';
+        }
+        i++;
+    }
+    puts(new_string);
+
+    return 0;
+}
