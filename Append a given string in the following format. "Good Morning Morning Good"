@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char string[100];
+    char first_reverse[100];
+    char final_reverse[100];
+    char new_string[100];
+
+    printf("String: ");
+    gets(string);
+
+    int i = 0;
+    int j = strlen(string) - 1;
+
+    // Reversing the string.
+    while (i < strlen(string)) {
+        first_reverse[i] = string[j];
+        i++;
+        j--;
+    }
+    first_reverse[i] = '\0';
+    i = 0;
+
+    // Reversing the words.
+    while (i < strlen(string)) {
+        int k = i;
+        while (first_reverse[k] != ' ' && first_reverse[k] != '\0') {
+            k++;
+        }
+        int j = k - 1;
+        while (i != k) {
+            final_reverse[i] = first_reverse[j];
+            i++;
+            j--;
+        }
+        if (first_reverse[i] == ' ') {
+            final_reverse[i] = first_reverse[i];
+            i++;
+        }
+    }
+
+    // Appending the two strings.
+    i = 0;
+    for (i; string[i] != '\0'; i++) {
+        new_string[i] = string[i];
+    }
+    new_string[i] = ' ';
+    i = i + 1;
+    int k = 0;
+    for (k; final_reverse[k] != '\0'; k++) {
+        new_string[i] = final_reverse[k];
+        i++;
+    }
+    new_string[i] = '\0';
+    puts(new_string);
+
+    return 0;
+}
