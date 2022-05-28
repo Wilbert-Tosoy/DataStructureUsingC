@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    typedef struct complex {
+        int real;
+        int imaginary;
+    }COMPLEX;
+
+    COMPLEX c1, c2, sum_c, sub_c;
+    int choice;
+    do {
+        printf("\n1. Read the complex numbers");
+        printf("\n2. Display the complex numbers");
+        printf("\n3. Add the complex numbers");
+        printf("\n4. Subtract the complex numbers");
+        printf("\n5. EXIT");
+        printf("\nEnter your option: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            printf("\n\tEnter the real and imaginaray parts of the first complex number: ");
+            scanf("%d %d", &c1.real, &c1.imaginary);
+            printf("\tEnter the real and imaginary parts of the second complex number: ");
+            scanf("%d %d", &c2.real, &c2.imaginary);
+            break;
+        case 2:
+            printf("\n\tThe first complex number is: %d + %di", c1.real, c1.imaginary);
+            printf("\n\tThe second complex number is: %d + %di", c2.real, c2.imaginary);
+            printf("\n");
+            break;
+        case 3:
+            sum_c.real = c1.real + c2.real;
+            sum_c.imaginary = c1.imaginary + c2.imaginary;
+            printf("\n\tThe sum of two complex number is: %d+%di", sum_c.real, sum_c.imaginary);
+            printf("\n");
+            break;
+        case 4:
+            sub_c.real = c1.real - c2.real;
+            sub_c.imaginary = c1.imaginary - c2.imaginary;
+            printf("\n\tThe difference between two complex number is: %d - %di", sub_c.real, sub_c.imaginary);
+            printf("\n");
+            break;
+        default:
+            printf("Syntax Error");
+        }
+    } while (choice != 5);
+
+    return 0;
+}
