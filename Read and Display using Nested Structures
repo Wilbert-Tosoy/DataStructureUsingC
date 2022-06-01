@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    struct DOB {
+        int day;
+        int month;
+        int year;
+    };
+
+    struct student {
+        int number;
+        char name[20];
+        float fees;
+        struct DOB date;
+    }stud1;
+
+    printf("Enter the student number: ");
+    scanf("%d", &stud1.number);
+    while (getchar() != '\n') {};
+    printf("Enter the student name: ");
+    gets(stud1.name);
+    printf("Enter the fees: ");
+    scanf("%f", &stud1.fees);
+    printf("Enter Birthday: ");
+    scanf("%d %d %d", &stud1.date.month, &stud1.date.day, &stud1.date.year);
+
+    printf("#-%d\n", stud1.number);
+    printf("Name: %s\n", stud1.name);
+    printf("Fees: %f\n", stud1.fees);
+    printf("Birthday: %d-%d-%d", stud1.date.month, stud1.date.day, stud1.date.year);
+
+    return 0;
+}
