@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+struct student {
+    int number;
+    char name[20];
+    int fees;
+    char course[20];
+};
+
+int main() {
+    struct student stud1, *pointer_struct;
+
+    pointer_struct = &stud1;
+    printf("Student Number: ");
+    scanf("%d", &pointer_struct -> number);
+    while (getchar() != '\n') {};
+    printf("Student Name: ");
+    gets(pointer_struct -> name);
+    printf("Student Course: ");
+    gets(pointer_struct -> course);
+    printf("Student Fees: ");
+    scanf("%d", &pointer_struct -> fees);
+
+    printf("\n\tNumber: %d", pointer_struct -> number);
+    printf("\n\tName: %s", pointer_struct -> name);
+    printf("\n\tCourse: %s", pointer_struct -> course);
+    printf("\n\tFees: %d", pointer_struct -> fees);
+
+    return 0;
+}
